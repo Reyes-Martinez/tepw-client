@@ -32,6 +32,7 @@
         methods: {
             async getCategories() {
                 //fetch categories
+                
                 await axios.get(this.baseURL + "category/")
                     .then(res => this.categories = res.data)
                     .catch(err => console.log(err))
@@ -39,6 +40,7 @@
         },
         mounted(){
             this.getCategories();
+            
         }
     }
 </script>

@@ -3,7 +3,7 @@
     <!-- Navbar content -->
     <!--    Logo-->
     <router-link class="navbar-brand" :to="{ name: 'Home' }">
-      <img id="logo" src="../assets/icon.png" />
+      <img id="logo" src="../assets/logofinal.png"  />
     </router-link>
     <!--    Burger Button-->
     <button
@@ -62,10 +62,10 @@
             <router-link class="dropdown-item" :to="{ name: 'Home' }"
               >Home
             </router-link>
-            <router-link class="dropdown-item" :to="{ name: 'Home' }"
+            <router-link class="dropdown-item" :to="{ name: 'AdminProduct' }"
               >Product
             </router-link>
-            <router-link class="dropdown-item" :to="{ name: 'Home' }"
+            <router-link class="dropdown-item" :to="{ name: 'Category' }"
               >Category
             </router-link>
           </div>
@@ -103,14 +103,14 @@
             </a>
           </div>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <div id="cart" style="position:relative">
             <span id="nav-cart-count">{{ cartCount }}</span>
-            <!-- <router-link class="text-light" :to="{ name: 'Cart' }">
+            <router-link class="text-light" :to="{ name: 'Cart' }">
               <i class="fa fa-shopping-cart" style="font-size:36px"></i>
-            </router-link> -->
+            </router-link>
           </div>
-        </li>
+        </li> -->
       </ul>
       <!-- dropdown for account -->
     </div>
