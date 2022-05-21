@@ -160,6 +160,7 @@ export default {
   width: 150px;
   margin-left: 20px;
   margin-right: 20px;
+  height: 40px;
 }
 .nav-link {
   color: rgba(255, 255, 255);

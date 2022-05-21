@@ -2,7 +2,7 @@
   <div id="home">
     <!-- Page Wrapper -->
     <div id="background-div" class="page-holder bg-cover">
-      <div class="container py-5">
+      <!-- <div class="container py-5">
         <header class="text-left text-white py-5">
           <h3 class="mb-4 rounded">
             <a
@@ -13,13 +13,77 @@
             >
           </h3>
           <p id="content" class="lead mb-0 bg-dark p-1 rounded">
-            Register and know the benefits, free shipping in less than 2 days!
+            
           </p>
         </header>
-      </div>
+      </div> -->
+              <section id="container-slider">
+            <a href="javascript: fntExecuteSlide('prev');" class="arrowPrev"
+              ><i class="fas fa-chevron-circle-left"></i
+            ></a>
+            <a href="javascript: fntExecuteSlide('next');" class="arrowNext"
+              ><i class="fas fa-chevron-circle-right"></i
+            ></a>
+            <ul class="listslider">
+              <li>
+                <a itlist="itList_0" href="#" class="item-select-slid"></a>
+              </li>
+              <li><a itlist="itList_1" href="#"></a></li>
+              <li><a itlist="itList_2" href="#"></a></li>
+            </ul>
+            <ul id="slider">
+              <li
+                style="
+                  background-image: url('https://cdn.pixabay.com/photo/2020/04/15/11/20/telework-5046230_1280.jpg');
+                  z-index: 0;
+                  opacity: 1;
+                "
+              >
+                <div class="content_slider">
+                  <div>
+                    <h2>Computers & Accessories</h2>
+                    <p>
+                      Register and know the benefits, free shipping in less than 2 days!
+                    </p>
+                    <a href="#start-shopping" class="btnSlider">See More</a>
+                  </div>
+                </div>
+              </li>
+              <li
+                style="
+                  background-image: url('https://cdn.pixabay.com/photo/2018/02/20/10/28/business-3167295_960_720.jpg');
+                "
+              >
+                <div class="content_slider">
+                  <div>
+                    <h2>Comfy styles for her</h2>
+                    <p>
+                      Show your style with our unbeatable wears
+                    </p>
+                    <a href="#start-shopping" class="btnSlider">See more</a>
+                  </div>
+                </div>
+              </li>
+              <li
+                style="
+                  background-image: url('https://cdn.pixabay.com/photo/2015/07/17/22/42/typing-849806_960_720.jpg');
+                "
+              >
+                <div class="content_slider">
+                  <div>
+                    <h2>Electronics</h2>
+                    <p>
+                      Everything you need and prices that fit your budged
+                    </p>
+                    <a href="#start-shopping" class="btnSlider">See more</a>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </section>
     </div>
 
-    <div id="start-shopping" class="container">
+    <div class="container">
       <div class="row">
         <div class="col-12 text-left">
           <h2 class="pt-3">Top Categories</h2>
@@ -34,16 +98,20 @@
           <CategoryBox :category="categories[index - 1]"> </CategoryBox>
         </div>
       </div>
-      
     </div>
-          <div style="padding: 30px;">
-        <router-link :to="{ name: 'Category' }">
-          <button class="btn btn-primary" style="  background-color: #febd69; border-color: #febd69;">See all categories</button>
-        </router-link>
-      </div>
+    <div style="padding: 30px">
+      <router-link :to="{ name: 'Category' }">
+        <button
+          class="btn btn-primary"
+          style="background-color: #febd69; border-color: #febd69"
+        >
+          See all categories
+        </button>
+      </router-link>
+    </div>
 
     <hr />
-    <div class="container">
+    <div id="start-shopping" class="container">
       <div class="row">
         <div class="col-12 text-left">
           <h2 class="pt-3">Top Products</h2>
@@ -58,9 +126,14 @@
           <ProductBox :product="products[index - 1]"> </ProductBox>
         </div>
       </div>
-      <div style="padding: 30px;">
+      <div style="padding: 30px">
         <router-link :to="{ name: 'AdminProduct' }">
-          <button class="btn btn-primary" style="  background-color: #febd69; border-color: #febd69;">See all products</button>
+          <button
+            class="btn btn-primary"
+            style="background-color: #febd69; border-color: #febd69"
+          >
+            See all products
+          </button>
         </router-link>
       </div>
     </div>
