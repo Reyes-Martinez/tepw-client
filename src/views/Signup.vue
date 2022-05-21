@@ -139,6 +139,7 @@ export default {
             first_name: this.firstName,
             last_name: this.lastName,
             password: this.password,
+            telephone: this.telephone,
             email : this.email,
           },
           id_role: this.id_role,

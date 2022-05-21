@@ -1,15 +1,12 @@
 <template>
   <div id="app">
-    <Navbar/>
+    <Navbar />
     <div style="min-height: 60vh">
-      <router-view v-if="products && categories"
-         :baseURL="baseURL"
-         :products="products"
-         :categories="categories"
-         @fetchData = "fetchData">
+      <router-view v-if="products && categories" :baseURL="baseURL" :products="products" :categories="categories"
+        @fetchData="fetchData">
       </router-view>
     </div>
-    <Footer/>
+    <Footer />
   </div>
 </template>
 
@@ -17,26 +14,30 @@
 const axios = require('axios');
 import Navbar from "./components/Navbar.vue"
 import Footer from "./components/Footer.vue"
+const base = "http://localhost:3000/api"
 
 export default {
   data() {
     return {
-      baseURL : "https://limitless-lake-55070.herokuapp.com/",
-      products : null,
-      categories : null
+      baseURL: "https://limitless-lake-55070.herokuapp.com/",
+      products: null,
+      categories: null
     }
   },
-  components : { Navbar, Footer, Navbar },
-  methods : {
+  components: { Navbar, Footer, Navbar },
+  methods: {
     async fetchData() {
       // fetch products
-      await axios.get(this.baseURL + "product/")
-              .then(res => this.products = res.data)
-              .catch(err => console.log(err))
+      //await axios.get(this.baseURL + "product/")
+      await axios.get(base + "/product/all")
+        .then(res => this.products = res.data)
+        .catch(err => console.log(err))
+        console.log(this.products)
       //fetch categories
       await axios.get(this.baseURL + "category/")
-              .then(res => this.categories = res.data)
-              .catch(err => console.log(err))
+        .then(res => this.categories = res.data)
+        .catch(err => console.log(err))
+        console.log(this.categories)
     }
   },
   mounted() {
@@ -53,10 +54,12 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
+
 #nav a {
   font-weight: bold;
   color: #2c3e50;
 }
+
 #nav a.router-link-exact-active {
   color: #42b983;
 }
