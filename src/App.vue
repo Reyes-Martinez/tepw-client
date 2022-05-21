@@ -6,6 +6,7 @@
          :baseURL="baseURL"
          :products="products"
          :categories="categories"
+         :addresses="addresses"
          @fetchData = "fetchData">
       </router-view>
     </div>
@@ -23,7 +24,8 @@ export default {
     return {
       baseURL : "https://limitless-lake-55070.herokuapp.com/",
       products : null,
-      categories : null
+      categories : null,
+      addresses : null,
     }
   },
   components : { Navbar, Footer, Navbar },
@@ -37,6 +39,17 @@ export default {
       await axios.get(this.baseURL + "category/")
               .then(res => this.categories = res.data)
               .catch(err => console.log(err))
+    this.addresses = [
+  {
+    "address": "Direccion ejemeplo",
+    "city": "ciudad ejemplo",
+    "id": 0,
+    "imageURL": "string",
+    "postal_code": "asasd",
+    "country": "celaya"
+  }
+]
+      
     }
   },
   mounted() {

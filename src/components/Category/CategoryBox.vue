@@ -14,7 +14,7 @@
         <h5 class="card-title">{{ category.categoryName }}</h5>
       </router-link>
       <router-link :to="{name: 'ListProducts', params: {id: category.id} }">
-        <a href="" class="btn btn-primary">See Category</a>
+        <a href="" class="btn btn-primary" style="  background-color: #febd69; border-color: #febd69;">See Category</a>
       </router-link>
       
       <p class="card-text">
@@ -22,7 +22,7 @@
       </p>
       <router-link :to="{name: 'EditCategory', params: {id: category.id}}"
                    v-show="$route.name == 'Category'">
-        <button class="btn btn-primary">Edit</button>
+        <button class="btn btn-primary" style="  background-color: #febd69; border-color: #febd69;">Edit</button>
       </router-link>
     </div>
   </div>

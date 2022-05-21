@@ -16,6 +16,8 @@ import Cart from '../views/Cart';
 
 //User
 import Address from '../views/User/Address';
+import AddAddress from '../views/User/AddAddress';
+import PaymentMethod from '../views/User/PaymentMethod';
 
 import Success from '../views/payment/Success';
 import Failed from '../views/payment/Failed';
@@ -129,6 +131,16 @@ const routes = [
     path: '/user/address',
     name: 'Address',
     component: Address,
+  },
+  {
+    path: '/user/AddAddress',
+    name: 'AddAddress',
+    component: AddAddress,
+  },
+  {
+    path: '/user/paymentMethod',
+    name: 'PaymentMethod',
+    component: PaymentMethod,
   },
 ];
 

@@ -77,9 +77,21 @@
             id="navbarAccount"
             data-toggle="dropdown"
           >
-            Accounts
+            My Account
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarAccount">
+            <router-link
+              v-if="token"
+              class="dropdown-item"
+              :to="{ name: 'Address' }"
+              >My Address
+            </router-link>
+            <router-link
+              v-if="token"
+              class="dropdown-item"
+              :to="{ name: 'PaymentMethod' }"
+              >My Payment Methods
+            </router-link>
             <router-link
               v-if="token"
               class="dropdown-item"
@@ -157,6 +169,11 @@ export default {
   border-color: #febd69;
   border-top-right-radius: 2px;
   border-bottom-right-radius: 2px;
+}
+#general-buttons-color{
+  background-color: #febd69;
+  border-color: #febd69;
+
 }
 #nav-cart-count {
   background-color: red;

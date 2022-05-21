@@ -18,7 +18,7 @@
             </p>
             <router-link :to="{name: 'EditProduct', params: {id: product.id}}"
             v-show="$route.name == 'AdminProduct'">
-                <button class="btn btn-primary">Edit</button>
+                <button class="btn btn-primary" style="  background-color: #febd69; border-color: #febd69;">Edit</button>
             </router-link>
         </div>
     </div>
