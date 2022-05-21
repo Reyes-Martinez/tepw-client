@@ -1,96 +1,130 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import Home from '../views/Home.vue'
-import AddCategory from '../views/Category/AddCategory'
-import Category from '../views/Category/Category'
-import Product from '../views/Product/Product'
-import Admin from "../views/Admin";
-import AddProduct from "../views/Product/AddProduct";
+import { createRouter, createWebHistory } from 'vue-router';
+import Home from '../views/Home.vue';
+import AddCategory from '../views/Category/AddCategory';
+import Category from '../views/Category/Category';
+import Product from '../views/Product/Product';
+import Admin from '../views/Admin';
+import AddProduct from '../views/Product/AddProduct';
+import EditCategory from '../views/Category/EditCategory';
+import EditProduct from '../views/Product/EditProduct';
+import ShowDetails from '../views/Product/ShowDetails';
+import WishList from '../views/Product/WishList';
+import ListProducts from '../views/Category/ListProducts';
 import Signup from '../views/Signup';
 import Signin from '../views/Signin';
-import ShowDetails from '../views/Product/ShowDetails';
-import EditProduct from '../views/Product/EditProduct';
-import ListProducts from '../views/Category/ListProducts';
-import EditCategory from '../views/Category/EditCategory';
+import Cart from '../views/Cart';
+
+import Success from '../views/payment/Success';
+import Failed from '../views/payment/Failed';
+import Checkout from '../views/Checkout/Checkout';
+
 const routes = [
   {
-    path: "/",
-    name: "Home",
+    path: '/',
+    name: 'Home',
     component: Home,
   },
-  {
-    path: "/admin/category/add",
-    name: "AddCategory",
-    component: AddCategory,
-  },
-  ,
-    // admin home page
-  {
-    path: '/admin',
-    name: 'Admin',
-    component: Admin
-  },
+  // category detail page
   {
     path: '/category/show/:id',
     name: 'ListProducts',
     component: ListProducts,
   },
   {
-    path: "/admin/category",
-    name: "AdminCategory",
-    component: Category,
+    path: '/admin/category/add',
+    name: 'AddCategory',
+    component: AddCategory,
   },
-  ,
   {
     path: '/admin/category',
     name: 'Category',
-    component: Category
+    component: Category,
+  },
+  // category edit
+  {
+    path: '/admin/category/:id',
+    name: 'EditCategory',
+    component: EditCategory,
+  },
+  // admin home page
+  {
+    path: '/admin',
+    name: 'Admin',
+    component: Admin,
   },
   {
     path: '/admin/product',
     name: 'AdminProduct',
-    component: Product
+    component: Product,
   },
+  // add product
   {
-    path: "/admin/category/:id",
-    name: "EditCategory",
-    component: EditCategory,
-  },
-  {
-    path: "/admin/product/add",
-    name: "AddProduct",
+    path: '/admin/product/new',
+    name: 'AddProduct',
     component: AddProduct,
   },
+  // edit product
   {
-    path: "/admin/product",
-    name: "AdminProduct",
-    component: Product
-  },
-  {
-    path: "/admin/product/:id",
-    name: "EditProduct",
+    path: '/admin/product/:id',
+    name: 'EditProduct',
     component: EditProduct,
   },
+
+  // show details of product
   {
-    path : '/product/show/:id',
-    name : 'ShowDetails',
-    component: ShowDetails
+    path: '/product/show/:id',
+    name: 'ShowDetails',
+    component: ShowDetails,
   },
+
+  // sign up and signin
+
   {
     path: '/signup',
     name: 'Signup',
-    component: Signup
+    component: Signup,
   },
   {
     path: '/signin',
     name: 'Signin',
-    component: Signin
+    component: Signin,
+  },
+  {
+    path: '/wishlist',
+    name: 'WishList',
+    component: WishList,
+  },
+  {
+    path: '/cart',
+    name: 'Cart',
+    component: Cart,
+  },
+
+  // sucess and fail pages
+  {
+    path: '/payment/success',
+    name: 'PaymentSuccess',
+    component: Success,
+  },
+
+  {
+    path: '/payment/failed',
+    name: 'PaymentFail',
+    component: Failed,
+  },
+
+  // checkout
+
+  {
+    path: '/checkout',
+    name: 'Checkout',
+    component: Checkout,
   },
 ];
 
-
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
-  routes
-})
+  routes,
+});
 
-export default router
+export default router;

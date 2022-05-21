@@ -80,12 +80,12 @@
             Accounts
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarAccount">
-            <!-- <router-link
+            <router-link
               v-if="token"
               class="dropdown-item"
               :to="{ name: 'WishList' }"
               >Wishlist
-            </router-link> -->
+            </router-link>
             <router-link
               v-if="!token"
               class="dropdown-item"
@@ -103,14 +103,14 @@
             </a>
           </div>
         </li>
-        <!-- <li class="nav-item">
+        <li class="nav-item">
           <div id="cart" style="position:relative">
             <span id="nav-cart-count">{{ cartCount }}</span>
             <router-link class="text-light" :to="{ name: 'Cart' }">
               <i class="fa fa-shopping-cart" style="font-size:36px"></i>
             </router-link>
           </div>
-        </li> -->
+        </li>
       </ul>
       <!-- dropdown for account -->
     </div>
