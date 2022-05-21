@@ -1,81 +1,74 @@
- <template>
-   <div class="container">
-     <div class="row">
-       <div class="col-12 text-center">
-         <h4 class="pt-3">Add new Category</h4>
-       </div>
-     </div>
-
-     <div class="row">
-       <div class="col-3"></div>
-       <div class="col-md-6 px-5 px-md-0">
+<template>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3 class="pt-3">Add Category</h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-3"></div>
+      <div class="col-6">
         <form>
           <div class="form-group">
-            <label>Category Name</label>
-            <input type="text" class="form-control" v-model="categoryName" required>
+            <label>Name</label>
+            <input type="text" class="form-control" v-model="categoryName" />
           </div>
           <div class="form-group">
             <label>Description</label>
-            <input type="text" class="form-control" v-model="description" required>
+            <textarea type="text" class="form-control" v-model="description" />
           </div>
           <div class="form-group">
-            <label>ImageURL</label>
-            <input type="url" class="form-control" v-model="imageURL" required>
+            <label>Image</label>
+            <input type="text" class="form-control" v-model="imageUrl" />
           </div>
-          <button type="button" class="btn btn-primary" @click="addCategory">Submit</button>
+          <button type="button" class="btn btn-primary" @click="addCategory">
+            Submit
+          </button>
         </form>
-       </div>
-       <div class="col-3"></div>
-     </div>
+      </div>
+      <div class="col-3"></div>
+    </div>
   </div>
 </template>
-
 <script>
-var axios =  require('axios')
-import swal from 'sweetalert';
+const axios = require("axios");
+const sweetalert = require("sweetalert");
 export default {
-  data(){
+  data() {
     return {
-      categoryName : null,
-      description : null,
-      imageURL : null,
-    }
+      categoryName: "",
+      description: "",
+      imageUrl: "",
+    };
   },
-  methods : {
-    async addCategory() {
+  methods: {
+    addCategory() {
+      console.log(this.categoryName, this.description);
       const newCategory = {
-        categoryName : this.categoryName,
-        description : this.description,
-        imageUrl : this.imageURL,
+        categoryName: this.categoryName,
+        description: this.description,
+        imageUrl: this.imageUrl,
       };
-      const baseURL =  "https://limitless-lake-55070.herokuapp.com/";
-      await axios({
-        method: 'post',
-        url: baseURL+"category/create",
-        data : JSON.stringify(newCategory),
+      const baseURL = "https://limitless-lake-55070.herokuapp.com";
+      axios({
+        method: "post",
+        url: `${baseURL}/category/create`,
+        data: JSON.stringify(newCategory),
         headers: {
-          'Content-Type': 'application/json'
-        }
+          "Content-Type": "application/json",
+        },
       })
-      .then(() => {
-        swal({
-          text: "Category Added Successfully!",
-          icon: "success",
-          closeOnClickOutside: false,
+        .then(() => {
+          sweetalert({
+            text: "Category added successfully",
+            icon: "success",
+          });
+        })
+        .catch((err) => {
+          console.log(err);
         });
-      })
-      .catch(err => console.log(err));
-    }
+    },
   },
-  mounted(){
-  }
-}
+};
 </script>
-
-<style scoped>
-h4 {
-  font-family: 'Roboto', sans-serif;
-  color: #484848;
-  font-weight: 700;
-}
-</style>
+<style scoped></style>

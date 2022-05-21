@@ -4,13 +4,19 @@
       <img
         class="card-img-top embed-responsive-item"
         :src="category.imageUrl"
-        alt="Card image cap"
+        alt="No image"
+        onerror="this.src='https://as1.ftcdn.net/v2/jpg/04/34/72/82/1000_F_434728286_OWQQvAFoXZLdGHlObozsolNeuSxhpr84.jpg'"  />
+
       />
     </div>
     <div class="card-body">
       <router-link :to="{name: 'ListProducts', params: {id: category.id} }">
         <h5 class="card-title">{{ category.categoryName }}</h5>
       </router-link>
+      <router-link :to="{name: 'ListProducts', params: {id: category.id} }">
+        <a href="" class="btn btn-primary">See Category</a>
+      </router-link>
+      
       <p class="card-text">
         {{ category.description }}
       </p>

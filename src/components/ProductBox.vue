@@ -4,12 +4,12 @@
             <img
                 class="card-img-top embed-responsive-item"
                 :src="product.imageURL"
-                alt="Card image cap"
+                alt="No image"
             />
         </div>
         <div class="card-body">
             <router-link :to="{name: 'ShowDetails', params: {id : product.id}}">
-                <h5 class="card-title">{{ product.name }}</h5>
+                <h5 class="card-title">{{ product.name }} id : {{product.id}}</h5>
             </router-link>
             <p class="card-text">
                 {{ product.description.substring(0, 65) }}...

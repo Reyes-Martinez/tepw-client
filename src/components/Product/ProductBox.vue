@@ -4,15 +4,20 @@
             <img
                 class="card-img-top embed-responsive-item"
                 :src="product.imageURL"
-                alt="Card image cap"
-            />
+                alt="No image"
+                onerror="this.src='https://as1.ftcdn.net/v2/jpg/04/34/72/82/1000_F_434728286_OWQQvAFoXZLdGHlObozsolNeuSxhpr84.jpg'"  />
         </div>
+
         <div class="card-body">
-            <h5 class="card-title">{{ product.name }}</h5>
+            <router-link :to="{name: 'ShowDetails', params: {id : product.id}}">
+                <h5 class="card-title">{{ product.name }} id : {{product.id}}</h5>
+                                <a href="" class="btn btn-primary">Buy!</a>
+            </router-link>
             <p class="card-text">
                 {{ product.description.substring(0, 65) }}...
             </p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+
+            
         </div>
     </div>
 </template>
@@ -25,5 +30,11 @@
 <style scoped>
     .card-img-top {
         object-fit: cover;
+    }
+    a {
+        text-decoration: none;
+    }
+    .card-title {
+        color: #484848;
     }
 </style>

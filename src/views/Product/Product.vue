@@ -19,7 +19,7 @@
     </div>
 </template>
 <script>
-    import ProductBox from '/src/components/ProductBox.vue';
+    import ProductBox from "../../components/ProductBox";
     export default {
         components: {ProductBox},
         props:["products"]
