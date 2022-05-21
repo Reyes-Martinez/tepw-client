@@ -14,6 +14,9 @@ import Signup from '../views/Signup';
 import Signin from '../views/Signin';
 import Cart from '../views/Cart';
 
+//User
+import Address from '../views/User/Address';
+
 import Success from '../views/payment/Success';
 import Failed from '../views/payment/Failed';
 import Checkout from '../views/Checkout/Checkout';
@@ -119,6 +122,13 @@ const routes = [
     path: '/checkout',
     name: 'Checkout',
     component: Checkout,
+  },
+
+  //user
+  {
+    path: '/user/address',
+    name: 'Address',
+    component: Address,
   },
 ];
 

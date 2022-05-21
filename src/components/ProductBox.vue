@@ -4,12 +4,14 @@
             <img
                 class="card-img-top embed-responsive-item"
                 :src="product.imageURL"
-                alt="No image"
+               alt="No image"
+        onerror="this.src='https://as1.ftcdn.net/v2/jpg/04/34/72/82/1000_F_434728286_OWQQvAFoXZLdGHlObozsolNeuSxhpr84.jpg'"  />
+
             />
         </div>
         <div class="card-body">
             <router-link :to="{name: 'ShowDetails', params: {id : product.id}}">
-                <h5 class="card-title">{{ product.name }} id : {{product.id}}</h5>
+                <h5 class="card-title">{{ product.name }}</h5>
             </router-link>
             <p class="card-text">
                 {{ product.description.substring(0, 65) }}...
