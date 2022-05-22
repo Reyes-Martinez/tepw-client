@@ -19,9 +19,11 @@ const base = "http://localhost:3000/api"
 export default {
   data() {
     return {
-      baseURL: "https://limitless-lake-55070.herokuapp.com/",
+      baseURL: "http://localhost:3000/api",
       products: null,
-      categories: null
+      categories: null,
+      role:null,
+      user_id: null,
     }
   },
   components: { Navbar, Footer, Navbar },
@@ -34,7 +36,7 @@ export default {
         .catch(err => console.log(err))
         console.log(this.products)
       //fetch categories
-      await axios.get(this.baseURL + "category/")
+      await axios.get(base + "/category/all")
         .then(res => this.categories = res.data)
         .catch(err => console.log(err))
         console.log(this.categories)

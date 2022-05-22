@@ -141,6 +141,7 @@ export default {
             password: this.password,
             telephone: this.telephone,
             email : this.email,
+            telephone: this.telephone,
           },
           id_role: this.id_role,
         };

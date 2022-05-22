@@ -44,10 +44,11 @@
 
 <script>
 const axios = require('axios')
+const base = "http://localhost:3000/api"
 import swal from 'sweetalert';
 export default {
   name: 'Signin',
-  props : [ "baseURL"],
+  props : [ "baseURL","role","user_id"],
   data() {
     return {
       email: null,
@@ -56,6 +57,11 @@ export default {
     }
   },
   methods : {
+   parseJwt (token) {
+    var base64Url = token.split('.')[1];
+    var base64 = base64Url.replace('-', '+').replace('_', '/');
+    return JSON.parse(window.atob(base64));
+    },
     async signin(e) {
       e.preventDefault();
       // set loading to true
@@ -68,7 +74,8 @@ export default {
       // api call
       await axios({
         method: 'post',
-        url: this.baseURL + "user/signIn",
+        //url: this.baseURL + "user/signIn",
+        url: base + "/auth/login",
         data : JSON.stringify(user),
         headers: {
           'Content-Type': 'application/json'
@@ -77,6 +84,8 @@ export default {
       .then(res => {
         // login successful, we will get token in res.data object
         localStorage.setItem('token', res.data.token);
+        const {uid,roleid} = this.parseJwt(res.data.token)
+        console.log(uid,roleid);
         // // redirect to home page
         this.$router.replace("/");
         swal({
