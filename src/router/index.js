@@ -18,10 +18,12 @@ import Cart from '../views/Cart';
 import Address from '../views/User/Address';
 import AddAddress from '../views/User/AddAddress';
 import PaymentMethod from '../views/User/PaymentMethod';
-
+//Payment
 import Success from '../views/payment/Success';
 import Failed from '../views/payment/Failed';
 import Checkout from '../views/Checkout/Checkout';
+//Reports
+import Reports from '../views/Reports/Reports';
 
 const routes = [
   {
@@ -141,6 +143,13 @@ const routes = [
     path: '/user/paymentMethod',
     name: 'PaymentMethod',
     component: PaymentMethod,
+  },
+
+  //Reports
+  {
+    path: '/admin/Reports',
+    name: 'Reports',
+    component: Reports,
   },
 ];
 

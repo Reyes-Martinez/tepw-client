@@ -40,14 +40,18 @@
                 <AddressBox :address="address"/>
             </div>
       </div> -->
+      
   </div>
 </template>
 
 <script>
+
+
+
 import AddressBox from "../../components/Address/AddressBox";
 
 export default {
-  name: "Address",
+  name: "Home",
   components: { AddressBox },
   props: ["baseURL", "addresses"],
   data() {

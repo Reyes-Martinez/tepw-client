@@ -64,16 +64,15 @@
         <div class="col">
           <h5>Have a discount code?</h5>
           <div class="row">
-            <div class="col-8">
+            <div class="col-8 text-center">
               <input
-                style="margin-bottom: 10px"
                 type="text"
                 class="form-control"
                 v-model="name"
                 required
               />
             </div>
-            <div class="col-4">
+            <div class="col-4 text-center">
               <button
                 type="button"
                 class="btn btn-primary confirm"

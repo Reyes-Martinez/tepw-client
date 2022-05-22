@@ -99,6 +99,12 @@
               >Wishlist
             </router-link>
             <router-link
+              v-if="token"
+              class="dropdown-item"
+              :to="{ name: 'Reports' }"
+              >Reports
+            </router-link>
+            <router-link
               v-if="!token"
               class="dropdown-item"
               :to="{ name: 'Signup' }"
