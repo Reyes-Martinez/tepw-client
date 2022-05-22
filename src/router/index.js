@@ -17,11 +17,14 @@ import Cart from "../views/Cart";
 //User
 import Address from "../views/User/Address";
 import AddAddress from "../views/User/AddAddress";
-import PaymentMethod from "../views/User/PaymentMethod";
+
 //Payment
 import Success from "../views/payment/Success";
 import Failed from "../views/payment/Failed";
 import Checkout from "../views/Checkout/Checkout";
+import PaymentMethod from "../views/User/PaymentMethod";
+import AddPaymentMethod from "../views/User/AddPaymentMethod";
+
 //Reports
 import Reports from "../views/Reports/Reports";
 
@@ -143,6 +146,11 @@ const routes = [
     path: "/user/paymentMethod",
     name: "PaymentMethod",
     component: PaymentMethod,
+  },
+  {
+    path: "/user/AddPaymentMethod",
+    name: "AddPaymentMethod",
+    component: AddPaymentMethod,
   },
 
   //Reports
