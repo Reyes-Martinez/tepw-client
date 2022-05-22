@@ -109,7 +109,6 @@
         </button>
       </router-link>
     </div>
-
     <hr />
     <div id="start-shopping" class="container">
       <div class="row">
@@ -146,7 +145,7 @@ import CategoryBox from "../components/Category/CategoryBox";
 export default {
   name: "Home",
   components: { ProductBox, CategoryBox },
-  props: ["baseURL", "products", "categories"],
+  props: ["baseURL", "products", "categories", "user"],
   data() {
     return {
       category_size: 0,
@@ -154,6 +153,7 @@ export default {
     };
   },
   mounted() {
+     console.log(this.user)
     this.category_size = this.categories.length;
     this.category_size = Math.min(6, this.category_size);
     this.product_size = this.products.length;

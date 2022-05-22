@@ -52,7 +52,8 @@ export default {
     return {
       email: null,
       password: null,
-      loading: null
+      loading: null,
+      user: null
     }
   },
   methods : {
@@ -64,11 +65,11 @@ export default {
       const user = {
         email: this.email,
         password: this.password
-      }
+      }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
       // api call
-      await axios({
+      await axios({     
         method: 'post',
-        url: this.baseURL + "user/signIn",
+        url: this.baseURL + "auth/login",
         data : JSON.stringify(user),
         headers: {
           'Content-Type': 'application/json'
@@ -77,8 +78,11 @@ export default {
       .then(res => {
         // login successful, we will get token in res.data object
         localStorage.setItem('token', res.data.token);
-        // // redirect to home page
-        this.$router.replace("/");
+        this.user = 1;
+       
+// // redirect to home page
+        
+        this.$router.push({name:"Home",params:{user:res.data.user}});
         swal({
           text: "Login successful. Please continue",
           icon: "success"

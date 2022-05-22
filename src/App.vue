@@ -8,6 +8,7 @@
         :products="products"
         :categories="categories"
         :addresses="addresses"
+        :user="user"
         @fetchData="fetchData"
       >
       </router-view>
@@ -24,10 +25,12 @@ import Footer from "./components/Footer.vue";
 export default {
   data() {
     return {
-      baseURL: "https://limitless-lake-55070.herokuapp.com/",
+      //baseURL: "https://limitless-lake-55070.herokuapp.com/",
+      baseURL: "http://localhost:3000/api/",
       products: null,
       categories: null,
       addresses: null,
+      user: null
     };
   },
   components: { Navbar, Footer, Navbar },
@@ -35,14 +38,16 @@ export default {
     async fetchData() {
       // fetch products
       await axios
-        .get(this.baseURL + "product/")
+        .get(this.baseURL + "product/all")
         .then((res) => (this.products = res.data))
         .catch((err) => console.log(err));
+        console.log(this.products);
       //fetch categories
       await axios
-        .get(this.baseURL + "category/")
+        .get(this.baseURL + "category/all")
         .then((res) => (this.categories = res.data))
         .catch((err) => console.log(err));
+        console.log(this.categories);
       this.addresses = [
         {
           address: "Direccion ejemeplo",

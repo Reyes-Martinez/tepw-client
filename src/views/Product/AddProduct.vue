@@ -13,7 +13,7 @@
           <div class="form-group">
             <label>Category</label>
             <select class="form-control" v-model="categoryId" required>
-              <option v-for="category of categories" :key="category.id" :value="category.id">{{category.categoryName}}</option>
+              <option v-for="category of categories" :key="category.id" :value="category.id">{{ category.name }}</option>
             </select>
           </div>
           <div class="form-group">
@@ -26,16 +26,25 @@
           </div>
           <div class="form-group">
             <label>ImageURL</label>
-            <input type="url" class="form-control" v-model="imageURL" required>
+            <input type="file"  @change="onSelectedImage" 
+                ref="imageSelector" class="form-control" required>
           </div>
           <div class="form-group">
             <label>Price</label>
             <input type="number" class="form-control" v-model="price" required>
           </div>
+          <div class="form-group">
+            <label>Stock</label>
+            <input type="number" class="form-control" v-model="inventory" required>
+          </div>
           <button type="button" class="btn btn-primary" @click="addProduct">Submit</button>
         </form>
       </div>
-      <div class="col-3"></div>
+      <div class="col-3"> <img 
+    v-if="localImage"
+    :src="localImage" 
+    alt="entry-picture"
+    class="img-thumbnail"></div>
     </div>
   </div>
 </template>
@@ -43,42 +52,67 @@
 <script>
 const axios = require('axios')
 import swal from 'sweetalert';
+import parseJwt from '../../helper/decode.js'
+import uploadImage from "../../helper/uploadImage.js"
+
 export default {
-  data(){
+  data() {
     return {
-      categoryId : null,
-      name : null,
-      description : null,
-      imageURL : null,
-      price : null
+      categoryId: null,
+      name: null,
+      proveedor: null,
+      description: null,
+      image:null,
+      price: null,
+      inventory: null,
+      localImage: null, 
     }
   },
-  props : ["baseURL", "categories"],
-  methods : {
+  props: ["baseURL", "categories"],
+  methods: {
+     onSelectedImage(event) {
+            const file =event.target.files[0]
+            if(!file){
+                this.localImage = null
+                this.image = null
+                return
+            }
+            this.image = file
+            const fr = new FileReader()
+            fr.onload= () => {this.localImage = fr.result}
+            fr.readAsDataURL(file)
+        },
     async addProduct() {
+      this.image = await uploadImage(this.image)
+      console.log(this.baseURL)
+      const { uid } = parseJwt(localStorage.getItem('token'));
+      console.log(uid);
       const newProduct = {
-        categoryId : this.categoryId,
-        name : this.name,
-        description : this.description,
-        imageURL : this.imageURL,
-        price : this.price
-      }
+        categoryId: this.categoryId,
+        name: this.name,
+        proveedor: uid,
+        description: this.description,
+        imageURL: this.image,
+        price: this.price,
+        inventory : this.inventory
+      };
       await axios({
         method: 'post',
-        url: this.baseURL+"product/add",
-        data : JSON.stringify(newProduct),
+        url: this.baseURL + "product/add",
+        data: JSON.stringify(newProduct),
         headers: {
           'Content-Type': 'application/json'
         }
       })
-      .then(() => {
-        swal({
-          text: "Product Added Successfully!",
-          icon: "success",
-          closeOnClickOutside: false,
-        });
-      })
-      .catch(err => console.log(err));
+        .then(() => {
+            this.$router.replace("/");
+          swal({
+            text: "Product Added Successfully!",
+            icon: "success",
+            closeOnClickOutside: false,
+          });
+        })
+        .catch(err => console.log(err));
     }
   },
   mounted() {

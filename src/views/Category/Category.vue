@@ -25,7 +25,7 @@
         components : {CategoryBox},
         data() {
             return {
-                baseURL : "https://limitless-lake-55070.herokuapp.com/",
+                baseURL : "http://localhost:3000/api/",
                 categories : null,
             }
         },
@@ -33,7 +33,7 @@
             async getCategories() {
                 //fetch categories
                 
-                await axios.get(this.baseURL + "category/")
+                await axios.get(this.baseURL + "category/all")
                     .then(res => this.categories = res.data)
                     .catch(err => console.log(err))
             }

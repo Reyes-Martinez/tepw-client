@@ -13,7 +13,7 @@
           <div class="form-group">
             <label>Category</label>
             <select class="form-control" v-model="categoryId" required>
-              <option v-for="category of categories" :key="category.id" :value="category.id">{{category.categoryName}}</option>
+              <option v-for="category of categories" :key="category.id" :value="category.id">{{category.name}}</option>
             </select>
           </div>
           <div class="form-group">
@@ -35,7 +35,11 @@
           <button type="button" class="btn btn-primary" @click="editProduct">Submit</button>
         </form>
       </div>
-      <div class="col-3"></div>
+      <div class="col-3"><img 
+    v-if="localImage"
+    :src="localImage" 
+    alt="entry-picture"
+    class="img-thumbnail"></div>
     </div>
   </div>
 </template>

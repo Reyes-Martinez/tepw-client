@@ -3,11 +3,9 @@
         <div class="embed-responsive embed-responsive-16by9">
             <img
                 class="card-img-top embed-responsive-item"
-                :src="product.imageURL"
+                :src="product.image"
                alt="No image"
-        onerror="this.src='https://as1.ftcdn.net/v2/jpg/04/34/72/82/1000_F_434728286_OWQQvAFoXZLdGHlObozsolNeuSxhpr84.jpg'"  />
-
-            />
+        :onerror="this.src='https://as1.ftcdn.net/v2/jpg/04/34/72/82/1000_F_434728286_OWQQvAFoXZLdGHlObozsolNeuSxhpr84.jpg'" />
         </div>
         <div class="card-body">
             <router-link :to="{name: 'ShowDetails', params: {id : product.id}}">
@@ -19,6 +17,10 @@
             <router-link :to="{name: 'EditProduct', params: {id: product.id}}"
             v-show="$route.name == 'AdminProduct'">
                 <button class="btn btn-primary" style="  background-color: #febd69; border-color: #febd69;">Edit</button>
+            </router-link>
+            <router-link :to="{name: 'ShowDetails', params: {id : product.id}}">
+                <h5 class="card-title">{{ product.name }} id : {{product.id}}</h5>
+                                <a href="" class="btn btn-primary" style="  background-color: #febd69; border-color: #febd69;">Buy!</a>
             </router-link>
         </div>
     </div>

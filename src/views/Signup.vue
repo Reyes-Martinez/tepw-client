@@ -15,26 +15,18 @@
           <h2 class="pt-4 pl-4">Create Account</h2>
           <form @submit="signup" class="pt-4 pl-4 pr-4">
             <div class="form-row">
-              <div class="col">
+              <div class="col-8 mx-auto">
                 <div class="form-group">
                   <label>User Name</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    v-model="username"
-                    required
-                  />
+                  <input type="text" class="form-control" v-model="username" required />
                 </div>
               </div>
+            </div>
+            <div class="form-row">
               <div class="col">
                 <div class="form-group">
                   <label>Email</label>
-                  <input
-                    type="email"
-                    class="form-control"
-                    v-model="email"
-                    required
-                  />
+                  <input type="email" class="form-control" v-model="email" required />
                 </div>
               </div>
             </div>
@@ -42,52 +34,27 @@
               <div class="col">
                 <div class="form-group">
                   <label>First Name</label>
-                  <input
-                    type="name"
-                    class="form-control"
-                    v-model="firstName"
-                    required
-                  />
+                  <input type="name" class="form-control" v-model="firstName" required />
                 </div>
               </div>
               <div class="col">
                 <div class="form-group">
                   <label>Last Name</label>
-                  <input
-                    type="name"
-                    class="form-control"
-                    v-model="lastName"
-                    required
-                  />
+                  <input type="name" class="form-control" v-model="lastName" required />
                 </div>
               </div>
             </div>
             <div class="form-group">
               <label>Telephone</label>
-              <input
-                type="text"
-                class="form-control"
-                v-model="telephone"
-                required
-              />
+              <input type="text" class="form-control" v-model="telephone" required />
             </div>
             <div class="form-group">
               <label>Password</label>
-              <input
-                type="password"
-                class="form-control"
-                v-model="password"
-                required
-              />
+              <input type="password" class="form-control" v-model="password" required />
             </div>
             <div class="form-group">
               <label>Confirm Password</label>
-              <input
-                type="password"
-                class="form-control"
-                v-model="passwordConfirm"
-                required
-              />
+              <input type="password" class="form-control" v-model="passwordConfirm" required />
             </div>
             <div class="form-group">
               <label>Selecte type of user </label>
@@ -134,12 +101,12 @@ export default {
         // make the post body
         const information = {
           user: {
-            username : this.username,
+            username: this.username,
             email: this.email,
             first_name: this.firstName,
             last_name: this.lastName,
             password: this.password,
-            email : this.email,
+            email: this.email,
           },
           id_role: this.id_role,
         };
@@ -147,7 +114,7 @@ export default {
         // call the API
         await axios({
           method: "post",
-          url: base + "/user/singup",
+          url: this.baseURL + "user/singup",
           data: JSON.stringify(information),
           headers: {
             "Content-Type": "application/json",

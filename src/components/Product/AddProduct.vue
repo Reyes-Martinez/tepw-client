@@ -13,7 +13,7 @@
                         <label>Category</label>
                         <select class="form-control" v-model="categoryId" required>
                             <option v-for="category in categories" :key="category.id"
-                                    :value="category.id">{{ category.categoryName }}</option>
+                                    :value="category.id">{{ category.description }}</option>
                         </select>
                     </div>
                     <div class="form-group">
@@ -58,6 +58,7 @@
         },
         methods: {
             addProduct() {
+                
                 const newProduct = {
                     categoryId: this.categoryId,
                     description: this.description,
