@@ -20,6 +20,7 @@
       <p class="card-text">
         {{ category.description }}
       </p>
+      
       <router-link :to="{name: 'EditCategory', params: {id: category.id}}"
                    v-show="$route.name == 'Category'">
         <button class="btn btn-primary" style="  background-color: #febd69; border-color: #febd69;">Edit</button>
@@ -32,6 +33,7 @@ export default {
   name: "CategoryBox",
   props: ["category"],
   methods: {},
+
 };
 </script>
 

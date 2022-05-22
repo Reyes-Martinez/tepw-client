@@ -4,7 +4,7 @@
             <div class="col-12 text-center">
                 <h4> Our Products</h4>
                 <router-link :to="{name: 'AddProduct'}" style="float: right">
-                    <button class="btn" >
+                    <button class="btn btn-primary" >
                         Add Product
                     </button> </router-link>
             </div>

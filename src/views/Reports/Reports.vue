@@ -2,80 +2,57 @@
   <div class="container">
     <div class="row">
       <div class="col-12 text-center">
-        <h4 class="pt-3">My Address</h4>
+        <h4 class="pt-3">Reports</h4>
       </div>
-    </div>
-    <div style="padding: 30px">
-      <router-link :to="{ name: 'AddAddress' }">
-        <button
-          class="btn btn-primary"
-          style="background-color: #febd69; border-color: #febd69"
-        >
-          Add New Address
-        </button>
-      </router-link>
     </div>
 
     <div class="features pt-3">
-      <h5><strong>My Address</strong></h5>
-      <dl>
-        <dt>Address</dt>
-
-        <dd>Street 1300 E Manning Ave City/Town Reedley</dd>
-        <dd>
-          State/Province/Region California Zip/Postal Code 93654 Country United
-          States
-        </dd>
-      </dl>
-
-      <dl>
-        <dt>Contact</dt>
-        <dd>Phone Number (559) 638-8444</dd>
-        <dd>Email juanp@gmail.com</dd>
-      </dl>
+      <h5><strong>Sales Chart</strong></h5>
+      <div class="row">
+        <div class="col">
+            <h5>Sales</h5>
+          <GChart type="PieChart" :data="chartData" :options="chartOptions" />
+        </div>
+        <div class="col">
+            <h5>New Users</h5>
+          <GChart type="PieChart" :data="chartData" :options="chartOptions" />
+        </div>
+        <div class="col">
+            <h5>Others</h5>
+          <GChart type="PieChart" :data="chartData" :options="chartOptions" />
+        </div>
+      </div>
     </div>
-    <!-- <div class="row">
-            <div v-for="address of addresses" :key="address.id"
-                 class="col-md-6 col-xl-4 col-12 pt-3 d-flex">
-                <AddressBox :address="address"/>
-            </div>
-      </div> -->
-      
+    <div class="features pt-3">
+      <h5><strong>Sumary</strong></h5>
+      <GChart type="ColumnChart" :data="chartData" :options="chartOptions" />
+    </div>
   </div>
 </template>
 
 <script>
-
-
-
 import AddressBox from "../../components/Address/AddressBox";
+import { GChart } from "vue-google-charts";
 
 export default {
-  name: "Home",
-  components: { AddressBox },
+  name: "Reports",
+  components: { AddressBox, GChart },
   props: ["baseURL", "addresses"],
   data() {
     return {
-      category_size: 1,
-      product_size: 0,
-      addresses: [
-        {
-          address: "Direccion ejemeplo",
-          city: "ciudad ejemplo",
-          id: 0,
-          imageURL: "qwe",
-          postal_code: "asasd",
-          country: "celaya",
-        },
-        {
-          address: "Direccion ejemeplo",
-          city: "ciudad ejemplo",
-          id: 1,
-          imageURL: "qwe",
-          postal_code: "asasd",
-          country: "celaya",
-        },
+      chartData: [
+        ["Year", "Sales", "Expenses", "Profit"],
+        ["2014", 1000, 400, 200],
+        ["2015", 1170, 460, 250],
+        ["2016", 660, 1120, 300],
+        ["2017", 1030, 540, 350],
       ],
+      chartOptions: {
+        chart: {
+          title: "Company Performance",
+          subtitle: "Sales, Expenses, and Profit: 2014-2017",
+        },
+      },
     };
   },
   mounted() {
