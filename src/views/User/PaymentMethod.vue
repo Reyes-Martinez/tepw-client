@@ -6,26 +6,35 @@
       </div>
     </div>
     <div style="padding: 30px">
-      <router-link :to="{ name: 'AddAddress' }">
+      <router-link :to="{ name: 'AddPaymentMethod' }">
         <button
           class="btn btn-primary"
           style="background-color: #febd69; border-color: #febd69"
         >
-         Add New Payment Method
+          Add New Payment Method
         </button>
       </router-link>
     </div>
 
     <div class="features pt-3">
-          <h5><strong>My Address</strong></h5>
-          <ul>
-            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
-            <li>Officia quas, officiis eius magni error magnam voluptatem</li>
-            <li>nesciunt quod! Earum voluptatibus quaerat dolorem doloribus</li>
-            <li>molestias ipsum ab, ipsa consectetur laboriosam soluta et</li>
-            <li>ut doloremque dolore corrupti, architecto iusto beatae.</li>
-          </ul>
-        </div>
+      <h5><strong>Selected Method</strong></h5>
+
+      <dl>
+        <dt>Contact</dt>
+        <dd>Phone Number (559) 638-8444</dd>
+        <dd>Email juanp@gmail.com</dd>
+      </dl>
+      <dl>
+        <dt>Address</dt>
+        <dd>Street 1300 E Manning Ave City/Town Reedley</dd>
+        <dd>
+          State/Province/Region California Zip/Postal Code 93654 Country United
+          States
+        </dd>
+      </dl>
+    </div>
+
+    
   </div>
 </template>
 
