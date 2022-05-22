@@ -9,10 +9,10 @@
         </div>
 
         <div class="card-body">
-            <router-link :to="{name: 'ShowDetails', params: {id : address.id}}">
+            <!-- <router-link :to="{name: 'ShowDetails', params: {id : address.id}}"> -->
                 <h5 class="card-title">{{ address.address }} id : {{address.id}}</h5>
-                                <a href="" class="btn btn-primary" style="  background-color: #febd69; border-color: #febd69;">Buy!</a>
-            </router-link>
+                                <a href="" class="btn btn-primary" style="  background-color: #febd69; border-color: #febd69;">Select Address</a>
+            <!-- </router-link> -->
             <p class="card-text">
                 {{ address.city.substring(0, 65) }}...
             </p>
@@ -23,8 +23,8 @@
 </template>
 <script>
     export default {
-        name: "ProductBox",
-        props: ["product"]
+        name: "AddressBox",
+        props: ["address"]
     }
 </script>
 <style scoped>

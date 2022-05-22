@@ -34,12 +34,12 @@
         <dd>Email juanp@gmail.com</dd>
       </dl>
     </div>
-    <!-- <div class="row">
+    <div class="row">
             <div v-for="address of addresses" :key="address.id"
                  class="col-md-6 col-xl-4 col-12 pt-3 d-flex">
                 <AddressBox :address="address"/>
             </div>
-      </div> -->
+      </div>
   </div>
 </template>
 
