@@ -7,100 +7,76 @@
     </div>
 
     <ul class="nav nav-tabs" id="myTab" role="tablist">
-      <li class="nav-item" role="presentation">
-        <button
+      <li class="nav-item">
+        <a
           class="nav-link active"
           id="home-tab"
-          data-bs-toggle="tab"
-          data-bs-target="#home-tab-pane"
-          type="button"
+          data-toggle="tab"
+          href="#home"
           role="tab"
-          aria-controls="home-tab-pane"
+          aria-controls="home"
           aria-selected="true"
+          >Credit/Card</a
         >
-          Card
-        </button>
       </li>
-      <li class="nav-item" role="presentation">
-        <button
-          class="nav-link active"
-          id="profile-tab"
-          data-bs-toggle="tab"
-          data-bs-target="#profile-tab-pane"
-          type="button"
-          role="tab"
-          aria-controls="profile-tab-pane"
-          aria-selected="false"
-        >
-          Paypal
-        </button>
-      </li>
-      <li class="nav-item" role="presentation">
-        <button
-          class="nav-link active"
-          id="contact-tab"
-          data-bs-toggle="tab"
-          data-bs-target="#contact-tab-pane"
-          type="button"
-          role="tab"
-          aria-controls="contact-tab-pane"
-          aria-selected="false"
-        >
-          Gift Card
-        </button>
-      </li>
-      <li class="nav-item" role="presentation">
-        <button
+      <li class="nav-item">
+        <a
           class="nav-link"
-          id="disabled-tab"
-          data-bs-toggle="tab"
-          data-bs-target="#disabled-tab-pane"
-          type="button"
+          id="profile-tab"
+          data-toggle="tab"
+          href="#profile"
           role="tab"
-          aria-controls="disabled-tab-pane"
+          aria-controls="profile"
           aria-selected="false"
-          disabled
+          >Paypal</a
         >
-          Disabled
-        </button>
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          id="contact-tab"
+          data-toggle="tab"
+          href="#contact"
+          role="tab"
+          aria-controls="contact"
+          aria-selected="false"
+          >Other</a
+        >
       </li>
     </ul>
     <div class="tab-content" id="myTabContent">
       <div
         class="tab-pane fade show active"
-        id="home-tab-pane"
+        id="home"
         role="tabpanel"
         aria-labelledby="home-tab"
-        tabindex="0"
       >
-       1 Lorem ipsum dolor sit, amet consectetur adipisicing elit. At dignissimos, dolorem id distinctio facilis dicta possimus ullam fuga nisi impedit odio obcaecati tempore nostrum quasi quo expedita laboriosam, sunt modi!
+        1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas sunt
+        error autem vel nesciunt, dolorum tempore facilis? Hic aliquam
+        voluptatibus dolor, at eligendi dolorum, quis laborum debitis commodi
+        recusandae voluptatum!
       </div>
       <div
         class="tab-pane fade"
-        id="profile-tab-pane"
+        id="profile"
         role="tabpanel"
         aria-labelledby="profile-tab"
-        tabindex="1"
       >
-       2 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Optio dolores esse reprehenderit et debitis architecto repellat? Facere labore, explicabo hic porro natus nisi, sit nihil numquam sint dolorum repellat suscipit.
+        2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas sunt
+        error autem vel nesciunt, dolorum tempore facilis? Hic aliquam
+        voluptatibus dolor, at eligendi dolorum, quis laborum debitis commodi
+        recusandae voluptatum!
       </div>
       <div
         class="tab-pane fade"
-        id="contact-tab-pane"
+        id="contact"
         role="tabpanel"
         aria-labelledby="contact-tab"
-        tabindex="2"
       >
-        3 Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem officia unde possimus modi. Animi natus magnam molestias placeat excepturi quasi repellendus perferendis eveniet! Suscipit, dolores recusandae. Hic nesciunt eos inventore?
-      </div>
-      <div
-        class="tab-pane fade"
-        id="disabled-tab-pane"
-        role="tabpanel"
-        aria-labelledby="disabled-tab"
-        tabindex="3"
-      >
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem officia unde possimus modi. Animi natus magnam molestias placeat excepturi quasi repellendus perferendis eveniet! Suscipit, dolores recusandae. Hic nesciunt eos inventore?
+        3Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas sunt
+        error autem vel nesciunt, dolorum tempore facilis? Hic aliquam
+        voluptatibus dolor, at eligendi dolorum, quis laborum debitis commodi
+        recusandae voluptatum!
       </div>
     </div>
   </div>
