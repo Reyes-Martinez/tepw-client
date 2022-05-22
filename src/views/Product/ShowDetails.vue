@@ -57,6 +57,8 @@
 <script>
 import swal from "sweetalert";
 import axios from "axios";
+import parseJwt from '../../helper/decode.js'
+
 export default {
   data() {
     return {
@@ -98,6 +100,7 @@ export default {
     },
     // add to cart
     addToCart() {
+      const { uid } = parseJwt(localStorage.getItem('token'));
       if (!this.token) {
         // user is not logged in
         // show some error
@@ -109,10 +112,18 @@ export default {
       }
       // add to cart
       axios
-        .post(`${this.baseURL}/cart/add?token=${this.token}`, {
-          productId: this.id,
-          quantity: this.quantity,
-        })
+        .post(
+          `${this.baseURL}cart/add`,{
+            product_id: this.id,
+            quantity: this.quantity,
+            user_id : uid
+          },
+          {
+            headers: {
+              jwt_token:this.token,
+            },
+          }
+        )
         .then((res) => {
           if (res.status == 201) {
             swal({
