@@ -128,7 +128,7 @@
             </a>
           </div>
         </li>
-        <li class="nav-item">
+        <li v-if="token" class="nav-item">
           <div id="cart" style="position: relative">
             <span id="nav-cart-count">{{ cartCount }}</span>
             <router-link class="text-light" :to="{ name: 'Cart' }">

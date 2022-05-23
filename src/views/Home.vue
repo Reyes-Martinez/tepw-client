@@ -153,7 +153,6 @@ export default {
     };
   },
   mounted() {
-     console.log(this.user)
     this.category_size = this.categories.length;
     this.category_size = Math.min(6, this.category_size);
     this.product_size = this.products.length;

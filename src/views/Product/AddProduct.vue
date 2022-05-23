@@ -104,12 +104,13 @@ export default {
         }
       })
         .then(() => {
-            this.$router.replace("/");
+            // this.$router.replace("/");
           swal({
             text: "Product Added Successfully!",
             icon: "success",
             closeOnClickOutside: false,
           });
+          this.$router.push({ name: 'AdminProduct' });
         })
         .catch(err => console.log(err));
     }

@@ -3,7 +3,7 @@
     <!--    Logo Div-->
     <div class="row">
       <div class="col-12 text-center pt-3">
-        <router-link :to="{name : 'Home'}">
+        <router-link :to="{ name: 'Home' }">
           <img id="logo" src="../assets/icon.png" />
         </router-link>
       </div>
@@ -22,7 +22,8 @@
               <label>Password</label>
               <input type="password" class="form-control" v-model="password" required>
             </div>
-            <small class="form-text text-muted">By continuing, you agree to Simplecoding's Conditions of Use and Privacy Notice.</small>
+            <small class="form-text text-muted">By continuing, you agree to Simplecoding's Conditions of Use and Privacy
+              Notice.</small>
             <button type="submit" class="btn btn-primary mt-2 py-0">
               Continue
               <!--  loading bar will appear when we are making the API call and saveing the token -->
@@ -34,7 +35,8 @@
           <hr>
           <small class="form-text text-muted pt-2 pl-4 text-center">New to Simplecoding?</small>
           <p class="text-center">
-            <router-link :to="{name: 'Signup'}" class="btn btn-dark text-center mx-auto px-5 py-1 mb-2">Create Your Simplecoding Account</router-link>
+            <router-link :to="{ name: 'Signup' }" class="btn btn-dark text-center mx-auto px-5 py-1 mb-2">Create Your
+              Simplecoding Account</router-link>
           </p>
         </div>
       </div>
@@ -47,7 +49,7 @@ const axios = require('axios')
 import swal from 'sweetalert';
 export default {
   name: 'Signin',
-  props : [ "baseURL"],
+  props: ["baseURL"],
   data() {
     return {
       email: null,
@@ -56,7 +58,7 @@ export default {
       user: null
     }
   },
-  methods : {
+  methods: {
     async signin(e) {
       e.preventDefault();
       // set loading to true
@@ -65,42 +67,40 @@ export default {
       const user = {
         email: this.email,
         password: this.password
-      }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+      }
       // api call
-      await axios({     
+      await axios({
         method: 'post',
         url: this.baseURL + "auth/login",
-        data : JSON.stringify(user),
+        data: JSON.stringify(user),
         headers: {
           'Content-Type': 'application/json'
         }
       })
-      .then(res => {
-        // login successful, we will get token in res.data object
-        localStorage.setItem('token', res.data.token);
-        this.user = 1;
-       
-// // redirect to home page
-        
-        this.$router.push({name:"Home",params:{user:res.data.user}});
-        swal({
-          text: "Login successful. Please continue",
-          icon: "success"
-        });
-      })
-      .catch(err => {
-        // error handling and showing sweet alert
-        swal({
-          text: "Unable to Log you in!",
-          icon: "error",
-          closeOnClickOutside: false,
-        });
-        console.log(err);
-      })
-      .finally(() => {
-        // set loading false
-        this.loading = false;
-      })
+        .then(res => {
+          // login successful, we will get token in res.data object
+          localStorage.setItem('token', res.data.token);
+          this.user = 1;
+          // // redirect to home pag
+          swal({
+            text: "Login successful. Please continue",
+            icon: "success"
+          });
+          this.$router.push({ name: "Home" });
+        })
+        .catch(err => {
+          // error handling and showing sweet alert
+          swal({
+            text: "Unable to Log you in!",
+            icon: "error",
+            closeOnClickOutside: false,
+          });
+          console.log(err);
+        })
+        .finally(() => {
+          // set loading false
+          this.loading = false;
+        })
     }
   },
   mounted() {
@@ -117,15 +117,18 @@ export default {
   border-radius: 0;
   border-color: #adb1b8 #a2a6ac #a2a6ac;
 }
+
 .btn-primary {
   background-color: #f0c14b;
   color: black;
   border-color: #a88734 #9c7e31 #846a29;
   border-radius: 0;
 }
+
 #logo {
   width: 150px;
 }
+
 @media only screen and (min-width: 992px) {
   #signin-div {
     width: 40%;
