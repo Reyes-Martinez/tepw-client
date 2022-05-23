@@ -85,13 +85,13 @@ export default {
     async addProduct() {
       this.image = await uploadImage(this.image)
       const { uid } = parseJwt(localStorage.getItem('token'));
-      console.log(uid);
+      console.log(this.image);
       const newProduct = {
         categoryId: this.categoryId,
         name: this.name,
         proveedor: uid,
         description: this.description,
-        imageURL: this.image,
+        image: this.image,
         price: this.price,
         inventory : this.inventory
       };

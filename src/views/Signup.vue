@@ -107,6 +107,7 @@ export default {
             last_name: this.lastName,
             password: this.password,
             email: this.email,
+            telephone: this.telephone
           },
           id_role: this.id_role,
         };
