@@ -28,6 +28,10 @@ import AddPaymentMethod from "../views/User/AddPaymentMethod";
 //Reports
 import Reports from "../views/Reports/Reports";
 
+//Orders
+import OrderHistory from "../views/order/OrderHistory";
+import OrderDetails from "../views/order/OrderDetails";
+
 const routes = [
   {
     path: "/",
@@ -159,6 +163,19 @@ const routes = [
     name: "Reports",
     component: Reports,
   },
+
+  //Orders
+  {
+    path: '/orders',
+    name: 'OrderHistory',
+    component: OrderHistory
+  },
+  {
+    path:'/order/:id',
+    name:'OrderDetails',
+    component: OrderDetails
+  },
+  
 ];
 
 const router = createRouter({
