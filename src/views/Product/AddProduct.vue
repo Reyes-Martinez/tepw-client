@@ -25,7 +25,7 @@
             <input type="text" class="form-control" v-model="description" required>
           </div>
           <div class="form-group">
-            <label>ImageURL</label>
+            <label>Select Image</label>
             <input type="file"  @change="onSelectedImage" 
                 ref="imageSelector" class="form-control" required>
           </div>

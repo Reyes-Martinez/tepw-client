@@ -125,7 +125,7 @@ export default {
     },
     deleteItem(itemId) {
       axios
-        .delete(`${this.baseURL}cart/delete/${itemId}/?token=${this.token}`)
+        .delete(`${this.baseURL}cart/delete/${itemId}`)
         .then((res) => {
           if (res.status == 200) {
             this.$router.go(0);
