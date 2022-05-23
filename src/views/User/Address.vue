@@ -56,24 +56,24 @@ export default {
     return {
       category_size: 1,
       product_size: 0,
-      //   addresses: [
-      //     {
-      //       address: "Direccion ejemeplo",
-      //       city: "ciudad ejemplo",
-      //       id: 0,
-      //       imageURL: "qwe",
-      //       postal_code: "asasd",
-      //       country: "celaya",
-      //     },
-      //     {
-      //       address: "Direccion ejemeplo",
-      //       city: "ciudad ejemplo",
-      //       id: 1,
-      //       imageURL: "qwe",
-      //       postal_code: "asasd",
-      //       country: "celaya",
-      //     },
-      //   ],
+        addresses: [
+          {
+            address: "Direccion ejemeplo",
+            city: "ciudad ejemplo",
+            id: 0,
+            imageURL: "qwe",
+            postal_code: "asasd",
+            country: "celaya",
+          },
+          {
+            address: "Direccion ejemeplo",
+            city: "ciudad ejemplo",
+            id: 1,
+            imageURL: "qwe",
+            postal_code: "asasd",
+            country: "celaya",
+          },
+        ],
     };
   },
   mounted() {

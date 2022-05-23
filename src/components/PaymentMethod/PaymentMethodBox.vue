@@ -1,26 +1,27 @@
 <template>
   <div class="card w-75">
     <div class="card-body">
-      <h5 class="card-title">{{ address.address }} id : {{ address.id }}</h5>
+      <h5 class="card-title">{{ paymentMethod.payment_type }} id : {{ paymentMethod.id }}</h5>
       <p class="card-text">
-        {{ address.address }}
+          <font-awesome-icon icon="fa-solid fa-credit-card" />
+        {{ paymentMethod.name }}
         <br />
-        <b> City:</b> {{ address.city }}
+        <b> City:</b> {{ paymentMethod.account_no }}
         <br />
-        <b> Postal Code: </b>{{ address.postal_code }}
+        <b> Postal Code: </b>{{ paymentMethod.ccv }}
         <br />
-        <b>Country: </b>{{ address.country }}
+        <b>Country: </b>{{ paymentMethod.email }}
       </p>
-      <!-- <router-link :to="{name: 'ShowDetails', params: {id : address.id}}"> -->
-      <a href="#" class="btn btn-primary">Select Address</a>
+      <!-- <router-link :to="{name: 'ShowDetails', params: {id : paymentMethod.id}}"> -->
+      <a href="#" class="btn btn-primary">Select paymentMethod</a>
       <!-- </router-link> -->
     </div>
   </div>
 </template>
 <script>
 export default {
-  name: "AddressBox",
-  props: ["address"],
+  name: "PaymentMethodBox",
+  props: ["paymentMethod"],
 };
 </script>
 <style scoped>
