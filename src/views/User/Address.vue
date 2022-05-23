@@ -18,20 +18,21 @@
 
     <div class="features pt-3">
       <h5><strong>Selected Address</strong></h5>
-
-      <dl>
-        <dt>Contact</dt>
-        <dd>Phone Number (559) 638-8444</dd>
-        <dd>Email juanp@gmail.com</dd>
-      </dl>
-      <dl>
-        <dt>Address</dt>
-        <dd>Street 1300 E Manning Ave City/Town Reedley</dd>
-        <dd>
-          State/Province/Region California Zip/Postal Code 93654 Country United
-          States
-        </dd>
-      </dl>
+      <div class="card">
+        <dl>
+          <dt>Contact</dt>
+          <dd>Phone Number (559) 638-8444</dd>
+          <dd>Email juanp@gmail.com</dd>
+        </dl>
+        <dl>
+          <dt>Address</dt>
+          <dd>Street 1300 E Manning Ave City/Town Reedley</dd>
+          <dd>
+            State/Province/Region California Zip/Postal Code 93654 Country
+            United States
+          </dd>
+        </dl>
+      </div>
     </div>
     <div class="row">
       <div
@@ -56,24 +57,24 @@ export default {
     return {
       category_size: 1,
       product_size: 0,
-        addresses: [
-          {
-            address: "Direccion ejemeplo",
-            city: "ciudad ejemplo",
-            id: 0,
-            imageURL: "qwe",
-            postal_code: "asasd",
-            country: "celaya",
-          },
-          {
-            address: "Direccion ejemeplo",
-            city: "ciudad ejemplo",
-            id: 1,
-            imageURL: "qwe",
-            postal_code: "asasd",
-            country: "celaya",
-          },
-        ],
+      addresses: [
+        {
+          address: "Direccion ejemeplo",
+          city: "ciudad ejemplo",
+          id: 0,
+          imageURL: "qwe",
+          postal_code: "asasd",
+          country: "celaya",
+        },
+        {
+          address: "Direccion ejemeplo",
+          city: "ciudad ejemplo",
+          id: 1,
+          imageURL: "qwe",
+          postal_code: "asasd",
+          country: "celaya",
+        },
+      ],
     };
   },
   mounted() {
