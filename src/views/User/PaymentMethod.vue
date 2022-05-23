@@ -18,20 +18,21 @@
 
     <div class="features pt-3">
       <h5><strong>Selected Method</strong></h5>
-
-      <dl>
-        <dt>Contact</dt>
-        <dd>Phone Number (559) 638-8444</dd>
-        <dd>Email juanp@gmail.com</dd>
-      </dl>
-      <dl>
-        <dt>Address</dt>
-        <dd>Street 1300 E Manning Ave City/Town Reedley</dd>
-        <dd>
-          State/Province/Region California Zip/Postal Code 93654 Country United
-          States
-        </dd>
-      </dl>
+      <div class="card">
+        <dl>
+          <dt>Contact</dt>
+          <dd>Phone Number (559) 638-8444</dd>
+          <dd>Email juanp@gmail.com</dd>
+        </dl>
+        <dl>
+          <dt>Address</dt>
+          <dd>Street 1300 E Manning Ave City/Town Reedley</dd>
+          <dd>
+            State/Province/Region California Zip/Postal Code 93654 Country
+            United States
+          </dd>
+        </dl>
+      </div>
     </div>
     <div class="row">
       <div
@@ -57,7 +58,7 @@ export default {
       PaymentMethods: [
         {
           id: 0,
-          payment_type: "ciudad ejemplo",
+          payment_type: "Credit Card",
           user_id: 0,
           name: "qwe",
           account_no: "asasd",
@@ -68,7 +69,7 @@ export default {
         },
         {
           id: 1,
-          payment_type: "ciudad ejemplo",
+          payment_type: "Credit Card",
           user_id: 0,
           name: "qwe",
           account_no: "asasd",
@@ -79,7 +80,7 @@ export default {
         },
         {
           id: 2,
-          payment_type: "ciudad ejemplo",
+          payment_type: "Credit Card",
           user_id: 0,
           name: "qwe",
           account_no: "asasd",
@@ -90,14 +91,14 @@ export default {
         },
         {
           id: 3,
-          payment_type: "ciudad ejemplo",
+          payment_type: "Paypal",
           user_id: 0,
           name: "qwe",
           account_no: "asasd",
           month: "celaya",
           ccv: "celaya",
           year: "celaya",
-          email: "celaya",
+          email: null,
         },
       ],
     };

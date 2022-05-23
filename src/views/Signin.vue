@@ -22,8 +22,7 @@
               <label>Password</label>
               <input type="password" class="form-control" v-model="password" required>
             </div>
-            <small class="form-text text-muted">By continuing, you agree to Simplecoding's Conditions of Use and Privacy
-              Notice.</small>
+            <small class="form-text text-muted">By continuing, you agreeConditions of Use and Privacy Notice.</small>
             <button type="submit" class="btn btn-primary mt-2 py-0">
               Continue
               <!--  loading bar will appear when we are making the API call and saveing the token -->
@@ -33,10 +32,9 @@
             </button>
           </form>
           <hr>
-          <small class="form-text text-muted pt-2 pl-4 text-center">New to Simplecoding?</small>
+          <small class="form-text text-muted pt-2 pl-4 text-center">New User?</small>
           <p class="text-center">
-            <router-link :to="{ name: 'Signup' }" class="btn btn-dark text-center mx-auto px-5 py-1 mb-2">Create Your
-              Simplecoding Account</router-link>
+            <router-link :to="{name: 'Signup'}" class="btn btn-dark text-center mx-auto px-5 py-1 mb-2">Create Your Account</router-link>
           </p>
         </div>
       </div>
