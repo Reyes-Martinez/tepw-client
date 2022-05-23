@@ -33,69 +33,82 @@
         </dd>
       </dl>
     </div>
-
-    
+    <div class="row">
+      <div
+        v-for="paymentMethod of PaymentMethods"
+        :key="paymentMethod.id"
+        class="col-md-6 col-xl-4 col-12 pt-3 d-flex"
+      >
+        <PaymentMethodBox :paymentMethod="paymentMethod" />
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-// var axios =  require('axios');
-// import swal from 'sweetalert';
-// export default {
-//   data(){
-//     return {
-//       id : null,
-//       categoryId : 0,
-//       name : null,
-//       description : null,
-//       imageURL : null,
-//       price : 0,
-//       productIndex : null
-//     }
-//   },
-//   props : ["baseURL", "products", "categories"],
-//   methods : {
-//     async editProduct() {
-//       const updatedProduct = {
-//         id : this.id,
-//         categoryId : this.categoryId,
-//         name : this.name,
-//         description : this.description,
-//         imageURL : this.imageURL,
-//         price : this.price
-//       }
-//       await axios({
-//         method: 'post',
-//         url: this.baseURL+"product/update/"+this.id,
-//         data : JSON.stringify(updatedProduct),
-//         headers: {
-//           'Content-Type': 'application/json'
-//         }
-//       })
-//       .then(() => {
-//         //sending the event to parent to handle
-//         this.$emit("fetchData");
-//         this.$router.push({name : 'AdminProduct'});
-//         swal({
-//           text: "Product Updated Successfully!",
-//           icon: "success",
-//           closeOnClickOutside: false,
-//         });
-//       })
-//       .catch(err => console.log("Hello", err));
-//     }
-//   },
-//   mounted() {
-//     this.id = this.$route.params.id;
-//     this.productIndex = this.products.findIndex(product => product.id == this.id);
-//     //input fields
-//     this.categoryId = this.products[this.productIndex].categoryId;
-//     this.name = this.products[this.productIndex].name;
-//     this.description = this.products[this.productIndex].description;
-//     this.imageURL = this.products[this.productIndex].imageURL;
-//     this.price = this.products[this.productIndex].price;
-//   }
-// }
+import PaymentMethodBox from "../../components/PaymentMethod/PaymentMethodBox";
+
+export default {
+  name: "PaymentMethod",
+  components: { PaymentMethodBox },
+  props: ["baseURL", "PaymentMethods"],
+  data() {
+    return {
+      PaymentMethods: [
+        {
+          id: 0,
+          payment_type: "ciudad ejemplo",
+          user_id: 0,
+          name: "qwe",
+          account_no: "asasd",
+          month: "celaya",
+          ccv: "celaya",
+          year: "celaya",
+          email: "celaya",
+        },
+        {
+          id: 1,
+          payment_type: "ciudad ejemplo",
+          user_id: 0,
+          name: "qwe",
+          account_no: "asasd",
+          month: "celaya",
+          ccv: "celaya",
+          year: "celaya",
+          email: "celaya",
+        },
+        {
+          id: 2,
+          payment_type: "ciudad ejemplo",
+          user_id: 0,
+          name: "qwe",
+          account_no: "asasd",
+          month: "celaya",
+          ccv: "celaya",
+          year: "celaya",
+          email: "celaya",
+        },
+        {
+          id: 3,
+          payment_type: "ciudad ejemplo",
+          user_id: 0,
+          name: "qwe",
+          account_no: "asasd",
+          month: "celaya",
+          ccv: "celaya",
+          year: "celaya",
+          email: "celaya",
+        },
+      ],
+    };
+  },
+  mounted() {
+    // this.category_size = this.categories.length;
+    // this.category_size = Math.min(6, this.category_size);
+    // this.product_size = this.products.length;
+    // this.product_size = Math.min(8, this.category_size);
+  },
+};
 </script>
 
 <style scoped>

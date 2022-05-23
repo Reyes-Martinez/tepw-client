@@ -48,16 +48,16 @@ export default {
         .then((res) => (this.categories = res.data))
         .catch((err) => console.log(err));
         console.log(this.categories);
-      this.addresses = [
-        {
-          address: "Direccion ejemeplo",
-          city: "ciudad ejemplo",
-          id: 0,
-          imageURL: "string",
-          postal_code: "asasd",
-          country: "celaya",
-        },
-      ];
+      // this.addresses = [
+      //   {
+      //     address: "Direccion ejemeplo",
+      //     city: "ciudad ejemplo",
+      //     id: 0,
+      //     imageURL: "string",
+      //     postal_code: "asasd",
+      //     country: "celaya",
+      //   },
+      // ];
     },
   },
   mounted() {
