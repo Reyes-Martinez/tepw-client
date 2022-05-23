@@ -3,7 +3,7 @@
     <!-- Navbar content -->
     <!--    Logo-->
     <router-link class="navbar-brand" :to="{ name: 'Home' }">
-      <img id="logo" src="../assets/logofinal.png"  />
+      <img id="logo" src="../assets/logofinal.png" width="" />
     </router-link>
     <!--    Burger Button-->
     <button
@@ -164,8 +164,8 @@ export default {
 <style scoped>
 #logo {
   width: 150px;
-  margin-left: 20px;
-  margin-right: 20px;
+  /* margin-left: 20px;
+  margin-right: 20px; */
   height: 40px;
 }
 .nav-link {
