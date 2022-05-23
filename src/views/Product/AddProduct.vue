@@ -84,7 +84,6 @@ export default {
         },
     async addProduct() {
       this.image = await uploadImage(this.image)
-      console.log(this.baseURL)
       const { uid } = parseJwt(localStorage.getItem('token'));
       console.log(uid);
       const newProduct = {

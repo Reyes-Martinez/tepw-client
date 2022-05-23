@@ -16,7 +16,7 @@
       <div class="col-2"></div>
       <div class="col-md-3 embed-responsive embed-responsive-16by9">
         <img
-          :src="cartItem.product.imageURL"
+          :src="cartItem.product.image"
           alt=""
           class="w-100 card-image-top embed-responsive-item"
           style="object-fit: cover"
@@ -28,7 +28,7 @@
         <div class="card-block px-3">
           <h6 class="card-title">
             <router-link
-              :to="{ name: 'ShowDetails', params: { id: cartItem.product.id } }"
+              :to="{ name: 'ShowDetails', params: { id: cartItem.id } }"
             >
               {{ cartItem.product.name }}
             </router-link>
@@ -44,7 +44,7 @@
         <p class="mb-0" style="float: right">
           Total:
           <span class="font-weight-bold">
-            $ {{ cartItem.product.price * cartItem.quantity }}
+            $ {{parseFloat(cartItem.product.price) * parseFloat(cartItem.quantity) }}
           </span>
         </p>
         <br />
@@ -65,12 +65,7 @@
           <h5>Have a discount code?</h5>
           <div class="row">
             <div class="col-8 text-center">
-              <input
-                type="text"
-                class="form-control"
-                v-model="name"
-                required
-              />
+              <input type="text" class="form-control" v-model="name" required />
             </div>
             <div class="col-4 text-center">
               <button
@@ -99,22 +94,30 @@
 </template>
 <script>
 import axios from "axios";
+import parseJwt from '../helper/decode.js'
 export default {
   data() {
     return {
       cartItems: [],
       token: null,
       totalCost: 0,
+      name:null,
     };
   },
   props: ["baseURL"],
   methods: {
     // fetch All items in cart
     listCartItems() {
+      const { uid } = parseJwt(localStorage.getItem('token'));
       axios
-        .get(`${this.baseURL}cart/?token=${this.token}`)
+        .get(`${this.baseURL}cart/${uid}`, {
+          headers: {
+            jwt_token: this.token,
+          },
+        })
         .then((res) => {
           const result = res.data;
+          console.log(res.data)
           this.cartItems = result.cartItems;
           this.totalCost = result.totalCost;
         })
@@ -133,8 +136,8 @@ export default {
     checkout() {
       this.$router.push({ name: "Checkout" });
     },
-    discount(){
-      this.totalCost = this.totalCost*.75;
+    discount() {
+      this.totalCost = this.totalCost * 0.75;
     },
   },
   mounted() {
