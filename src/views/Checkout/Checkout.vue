@@ -11,6 +11,7 @@
 </template>
 
 <script>
+import parseJwt from '@/helper/decode';
 import axios from 'axios';
 export default {
   data() {
@@ -20,23 +21,30 @@ export default {
       stripe: '',
       token: null,
       checkoutBodyArray: [],
+      totalCost:null
     };
   },
   name: 'Checkout',
   props: ['baseURL'],
   methods: {
     getAllItems() {
+      const { uid } = parseJwt(localStorage.getItem('token'));
       axios
-        .get(`${this.baseURL}cart/?token=${this.token}`)
+        .get(`${this.baseURL}cart/${uid}`,{
+          headers: {
+            jwt_token: this.token,
+          }})
         .then((response) => {
           if (response.status == 200) {
-            let products = response.data;
-            for (let i = 0; i < products.cartItems.length; i++) {
+            const {cartItems,totalCost} = response.data;
+            this.totalCost=totalCost
+            for (let i = 0; i < cartItems.length; i++) {
               this.checkoutBodyArray.push({
-                price: products.cartItems[i].product.price,
-                quantity: products.cartItems[i].quantity,
-                productName: products.cartItems[i].product.name,
-                productId: products.cartItems[i].product.id,
+                product_id: cartItems[i].product.id, 
+                price: cartItems[i].product.price,
+                quantity: cartItems[i].quantity,
+                productName: cartItems[i].product.name,
+                productId: cartItems[i].product.id,
               });
             }
           }
@@ -44,18 +52,20 @@ export default {
         .catch((err) => console.log(err));
     },
     goToCheckout() {
+      const { uid } = parseJwt(localStorage.getItem('token'));
       console.log('checkoutBodyArray', this.checkoutBodyArray);
       axios
         .post(
-          `${this.baseURL}order/create-checkout-session`,
-          this.checkoutBodyArray
+          `${this.baseURL}payment/order/create`,{
+            items : this.checkoutBodyArray,
+            totalCost:this.totalCost,
+            user_id:uid
+          }
         )
         .then((response) => {
-          localStorage.setItem('sessionId', response.data.sessionId);
-          console.log('session', response.data);
+          localStorage.setItem('sessionId', response.data.msg);
           this.stripe.redirectToCheckout({
-            sessionId: response.data.sessionId,
-          });
+            sessionId: response.data.smg, });
         })
         .catch((err) => console.log(err));
     },

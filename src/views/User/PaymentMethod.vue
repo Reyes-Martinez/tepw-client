@@ -47,7 +47,9 @@
 </template>
 
 <script>
+import parseJwt from "@/helper/decode";
 import PaymentMethodBox from "../../components/PaymentMethod/PaymentMethodBox";
+var axios = require('axios');
 
 export default {
   name: "PaymentMethod",
@@ -55,61 +57,75 @@ export default {
   props: ["baseURL", "PaymentMethods"],
   data() {
     return {
-      PaymentMethods: [
-        {
-          id: 0,
-          payment_type: "Credit Card",
-          user_id: 0,
-          name: "qwe",
-          account_no: "asasd",
-          month: "celaya",
-          ccv: "celaya",
-          year: "celaya",
-          email: "celaya",
-        },
-        {
-          id: 1,
-          payment_type: "Credit Card",
-          user_id: 0,
-          name: "qwe",
-          account_no: "asasd",
-          month: "celaya",
-          ccv: "celaya",
-          year: "celaya",
-          email: "celaya",
-        },
-        {
-          id: 2,
-          payment_type: "Credit Card",
-          user_id: 0,
-          name: "qwe",
-          account_no: "asasd",
-          month: "celaya",
-          ccv: "celaya",
-          year: "celaya",
-          email: "celaya",
-        },
-        {
-          id: 3,
-          payment_type: "Paypal",
-          user_id: 0,
-          name: "qwe",
-          account_no: "asasd",
-          month: "celaya",
-          ccv: "celaya",
-          year: "celaya",
-          email: null,
-        },
-      ],
+       PaymentMethods:null, 
+      // [
+      //   {
+      //     id: 0,
+      //     payment_type: "Credit Card",
+      //     user_id: 0,
+      //     name: "qwe",
+      //     account_no: "asasd",
+      //     month: "celaya",
+      //     ccv: "celaya",
+      //     year: "celaya",
+      //     email: "celaya",
+      //   },
+      //   {
+      //     id: 1,
+      //     payment_type: "Credit Card",
+      //     user_id: 0,
+      //     name: "qwe",
+      //     account_no: "asasd",
+      //     month: "celaya",
+      //     ccv: "celaya",
+      //     year: "celaya",
+      //     email: "celaya",
+      //   },
+      //   {
+      //     id: 2,
+      //     payment_type: "Credit Card",
+      //     user_id: 0,
+      //     name: "qwe",
+      //     account_no: "asasd",
+      //     month: "celaya",
+      //     ccv: "celaya",
+      //     year: "celaya",
+      //     email: "celaya",
+      //   },
+      //   {
+      //     id: 3,
+      //     payment_type: "Paypal",
+      //     user_id: 0,
+      //     name: "qwe",
+      //     account_no: "asasd",
+      //     month: "celaya",
+      //     ccv: "celaya",
+      //     year: "celaya",
+      //     email: null,
+      //   },
+      // ],
     };
   },
+  methods: {
+    async getMethods(){
+      const {uid} = parseJwt(localStorage.getItem('token'))
+      console.log(uid)
+      
+      await axios
+        .get(this.baseURL + "payment/all/metod/"+uid)
+        .then((res) => (this.PaymentMethods = res.data))
+        .catch((err) => console.log(err));
+        console.log(this.products);
+    }
+  },
   mounted() {
+    this.getMethods()
     // this.category_size = this.categories.length;
     // this.category_size = Math.min(6, this.category_size);
     // this.product_size = this.products.length;
     // this.product_size = Math.min(8, this.category_size);
   },
-};
+  }
 </script>
 
 <style scoped>
