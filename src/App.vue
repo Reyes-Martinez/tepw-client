@@ -41,13 +41,13 @@ export default {
         .get(this.baseURL + "product/all")
         .then((res) => (this.products = res.data))
         .catch((err) => console.log(err));
-        console.log(this.products);
+        // console.log(this.products);
       //fetch categories
       await axios
         .get(this.baseURL + "category/all")
         .then((res) => (this.categories = res.data))
         .catch((err) => console.log(err));
-        console.log(this.categories);
+        // console.log(this.categories);
       // this.addresses = [
       //   {
       //     address: "Direccion ejemeplo",

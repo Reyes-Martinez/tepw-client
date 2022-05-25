@@ -20,13 +20,13 @@
       <h5><strong>Selected Method</strong></h5>
       <div class="card">
         <dl>
-          <dt>Contact</dt>
-          <dd>Phone Number (559) 638-8444</dd>
-          <dd>Email juanp@gmail.com</dd>
+          <dt>Banamex</dt>
+          <dd>XXXX XXXX XXXX 1234</dd>
+          <dd>JUAN PEREZ</dd>
         </dl>
         <dl>
-          <dt>Address</dt>
-          <dd>Street 1300 E Manning Ave City/Town Reedley</dd>
+          <dt>DATE</dt>
+          <dd>XX/XXXX</dd>
           <dd>
             State/Province/Region California Zip/Postal Code 93654 Country
             United States
@@ -112,7 +112,7 @@ export default {
       console.log(uid)
       
       await axios
-        .get(this.baseURL + "payment/all/metod/"+uid)
+        .get(this.baseURL + "payment/all/metod/")
         .then((res) => (this.PaymentMethods = res.data))
         .catch((err) => console.log(err));
         console.log(this.products);

@@ -138,6 +138,11 @@ export default {
     },
     discount() {
       this.totalCost = this.totalCost * 0.75;
+      swal({
+              text: "Coupon code applied successfully",
+              icon: "success",
+              closeOnClickOutside: false,
+            });
     },
   },
   mounted() {

@@ -21,7 +21,7 @@ import AddAddress from "../views/User/AddAddress";
 //Payment
 import Success from "../views/payment/Success";
 import Failed from "../views/payment/Failed";
-import Checkout from "../views/Checkout/Checkout";
+import Checkout from "../views/order/MakeOrder";
 import PaymentMethod from "../views/User/PaymentMethod";
 import AddPaymentMethod from "../views/User/AddPaymentMethod";
 

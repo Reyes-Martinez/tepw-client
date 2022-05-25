@@ -125,13 +125,13 @@ export default {
           }
         )
         .then((res) => {
-          if (res.status == 201) {
+          // if (res.status == 201) {
             swal({
               text: "Product added in cart",
               icon: "success",
             });
             this.$emit("fetchData");
-          }
+          // }
         })
         .catch((err) => console.log("err", err));
     },

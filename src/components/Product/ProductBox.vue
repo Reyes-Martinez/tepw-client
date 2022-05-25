@@ -10,7 +10,7 @@
 
         <div class="card-body">
             <router-link :to="{name: 'ShowDetails', params: {id : product.id}}">
-                <h5 class="card-title">{{ product.name }} id : {{product.id}}</h5>
+                <h5 class="card-title">{{ product.name }}</h5>
                                 <a href="" class="btn btn-primary" style="  background-color: #febd69; border-color: #febd69;">Buy!</a>
             </router-link>
             

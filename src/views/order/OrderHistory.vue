@@ -56,60 +56,60 @@ export default {
           orderItems: [
             {
               createdDate: "2022-05-23T01:53:49.775Z",
-              price: 0,
+              price: 30,
               product: {
-                description: "string",
+                description: "Your purchase",
                 id: 0,
-                imageURL: "string",
-                name: "string",
-                price: 0,
+                imageURL: "https://as1.ftcdn.net/v2/jpg/04/34/72/82/1000_F_434728286_OWQQvAFoXZLdGHlObozsolNeuSxhpr84.jpg",
+                name: "Purchase",
+                price: 30,
               },
-              quantity: 0,
+              quantity: 2,
             },
           ],
           sessionId: "string",
-          totalPrice: 0,
+          totalPrice: 30,
         },
-        {
-          createdDate: "2022-05-23T01:53:49.775Z",
-          id: 0,
-          orderItems: [
-            {
-              createdDate: "2022-05-23T01:53:49.775Z",
-              price: 0,
-              product: {
-                description: "string",
-                id: 0,
-                imageURL: "string",
-                name: "string",
-                price: 0,
-              },
-              quantity: 0,
-            },
-          ],
-          sessionId: "string",
-          totalPrice: 0,
-        },
-        {
-          createdDate: "2022-05-23T01:53:49.775Z",
-          id: 0,
-          orderItems: [
-            {
-              createdDate: "2022-05-23T01:53:49.775Z",
-              price: 0,
-              product: {
-                description: "string",
-                id: 0,
-                imageURL: "string",
-                name: "string",
-                price: 0,
-              },
-              quantity: 0,
-            },
-          ],
-          sessionId: "string",
-          totalPrice: 0,
-        },
+        // {
+        //   createdDate: "2022-05-23T01:53:49.775Z",
+        //   id: 0,
+        //   orderItems: [
+        //     {
+        //       createdDate: "2022-05-23T01:53:49.775Z",
+        //       price: 0,
+        //       product: {
+        //         description: "string",
+        //         id: 0,
+        //         imageURL: "string",
+        //         name: "string",
+        //         price: 0,
+        //       },
+        //       quantity: 0,
+        //     },
+        //   ],
+        //   sessionId: "string",
+        //   totalPrice: 0,
+        // },
+        // {
+        //   createdDate: "2022-05-23T01:53:49.775Z",
+        //   id: 0,
+        //   orderItems: [
+        //     {
+        //       createdDate: "2022-05-23T01:53:49.775Z",
+        //       price: 0,
+        //       product: {
+        //         description: "string",
+        //         id: 0,
+        //         imageURL: "string",
+        //         name: "string",
+        //         price: 0,
+        //       },
+        //       quantity: 0,
+        //     },
+        //   ],
+        //   sessionId: "string",
+        //   totalPrice: 0,
+        // },
       ],
     };
   },
